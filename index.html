@@ -12,7 +12,7 @@
     <div class="page__container">
         
         <!-- Header -->
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container">
                 <div class="header__inner">
                     <div class="header__content">
@@ -20,10 +20,13 @@
                         <p class="header__subtitle mb-0 opacity-75">Студент-разработчик</p>
                     </div>
                     <div class="header__controls">
-                        <button id="themeToggle" class="theme-btn" type="button" aria-label="Переключить тему">
+                        <button id="themeToggle" class="theme-btn" type="button" 
+                                aria-label="Переключить тему" aria-pressed="false">
                             <span class="theme-icon">🌞</span>
                         </button>
-                        <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+                        <button class="nav-toggle" id="navToggle" 
+                                aria-label="Открыть меню" aria-expanded="false" 
+                                aria-controls="mainNav">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -34,27 +37,27 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="nav" id="mainNav">
+        <nav class="nav" id="mainNav" aria-label="Основная навигация">
             <div class="container">
-                <ul class="nav__list">
-                    <li class="nav__item nav__item--active">
-                        <a class="nav__link" href="index.html">
-                            <i class="bi bi-house me-2"></i>Главная
+                <ul class="nav__list" role="menubar">
+                    <li class="nav__item nav__item--active" role="none">
+                        <a class="nav__link" href="index.html" role="menuitem" aria-current="page">
+                            <i class="bi bi-house me-2" aria-hidden="true"></i>Главная
                         </a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="pages/projects.html">
-                            <i class="bi bi-folder me-2"></i>Проекты
+                    <li class="nav__item" role="none">
+                        <a class="nav__link" href="pages/projects.html" role="menuitem">
+                            <i class="bi bi-folder me-2" aria-hidden="true"></i>Проекты
                         </a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="pages/diary.html">
-                            <i class="bi bi-journal me-2"></i>Дневник
+                    <li class="nav__item" role="none">
+                        <a class="nav__link" href="pages/diary.html" role="menuitem">
+                            <i class="bi bi-journal me-2" aria-hidden="true"></i>Дневник
                         </a>
                     </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="pages/contacts.html">
-                            <i class="bi bi-envelope me-2"></i>Контакты
+                    <li class="nav__item" role="none">
+                        <a class="nav__link" href="pages/contacts.html" role="menuitem">
+                            <i class="bi bi-envelope me-2" aria-hidden="true"></i>Контакты
                         </a>
                     </li>
                 </ul>
@@ -62,38 +65,40 @@
         </nav>
 
         <!-- Mobile Navigation Overlay -->
-        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay" 
+             aria-hidden="true" tabindex="-1"></div>
 
         <!-- Main Content -->
-        <main class="main">
+        <main class="main" id="main-content" tabindex="-1">
             <div class="container">
                 <!-- Hero Section -->
-                <section class="hero section-padding">
+                <section class="hero section-padding" aria-labelledby="hero-heading">
                     <div class="hero__content">
                         <div class="hero__grid">
                             <div class="hero__info">
                                 <div class="hero__badge">Студент группы ЭФБО-11-24</div>
-                                <h2 class="hero__greeting">Привет! Я Пётр</h2>
+                                <h2 class="hero__greeting" id="hero-heading">Привет! Я Пётр</h2>
                                 <p class="hero__description">
-                                    Увлекаюсь веб и мобильой разработкой, а так же созданием современных интерфейсов. 
-                                    Слежу за новми технологиями и совершенствую свою базу данных].
+                                    Увлекаюсь веб и мобильной разработкой, а также созданием современных интерфейсов. 
+                                    Слежу за новыми технологиями и совершенствую свою базу данных.
                                 </p>
                                 <div class="hero__actions">
-                                    <a href="assets/resume.pdf" class="btn btn-primary btn-lg hero__button" download>
-                                        <i class="bi bi-download me-2"></i>Скачать резюме
+                                    <a href="assets/resume.pdf" class="btn btn-primary btn-lg hero__button" 
+                                       download aria-label="Скачать резюме (PDF документ)">
+                                        <i class="bi bi-download me-2" aria-hidden="true"></i>Скачать резюме
                                     </a>
                                     <a href="pages/contacts.html" class="btn btn-outline-secondary btn-lg">
-                                        <i class="bi bi-chat me-2"></i>Связаться
+                                        <i class="bi bi-chat me-2" aria-hidden="true"></i>Связаться
                                     </a>
                                 </div>
                             </div>
                             <div class="hero__media">
                                 <div class="hero__image-wrapper">
-                                    <img src="images/avtor.jpg" alt="Фото студента" 
+                                    <img src="images/avtor.jpg" alt="Фото Петра Халина" 
                                          class="hero__photo img-fluid"
-                                         loading="lazy">
-                                    <div class="hero__status">
-                                        <i class="bi bi-circle-fill"></i>
+                                         loading="lazy" width="300" height="300">
+                                    <div class="hero__status" aria-live="polite">
+                                        <i class="bi bi-circle-fill" aria-hidden="true"></i>
                                         Доступен для проектов
                                     </div>
                                 </div>
@@ -103,32 +108,36 @@
                 </section>
 
                 <!-- Stats Section -->
-                <section class="stats section-padding">
+                <section class="stats section-padding" aria-labelledby="stats-heading">
+                    <h2 id="stats-heading" class="sr-only">Моя статистика</h2>
                     <div class="stats__grid">
-                        <div class="stat-card">
+                        <div class="stat-card" aria-labelledby="projects-count">
                             <div class="stat-card__icon">
-                                <i class="bi bi-code-slash"></i>
+                                <i class="bi bi-code-slash" aria-hidden="true"></i>
                             </div>
                             <div class="stat-card__content">
-                                <div class="stat-card__number" data-count="3">0</div>
+                                <div class="stat-card__number" data-count="3" 
+                                     id="projects-count" aria-live="polite">0</div>
                                 <div class="stat-card__label">Завершенных проектов</div>
                             </div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card" aria-labelledby="experience-count">
                             <div class="stat-card__icon">
-                                <i class="bi bi-clock"></i>
+                                <i class="bi bi-clock" aria-hidden="true"></i>
                             </div>
                             <div class="stat-card__content">
-                                <div class="stat-card__number" data-count="1">0</div>
+                                <div class="stat-card__number" data-count="1" 
+                                     id="experience-count" aria-live="polite">0</div>
                                 <div class="stat-card__label">Года опыта</div>
                             </div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card" aria-labelledby="technologies-count">
                             <div class="stat-card__icon">
-                                <i class="bi bi-award"></i>
+                                <i class="bi bi-award" aria-hidden="true"></i>
                             </div>
                             <div class="stat-card__content">
-                                <div class="stat-card__number" data-count="2">0</div>
+                                <div class="stat-card__number" data-count="2" 
+                                     id="technologies-count" aria-live="polite">0</div>
                                 <div class="stat-card__label">Технологий</div>
                             </div>
                         </div>
@@ -136,59 +145,123 @@
                 </section>
 
                 <!-- Skills Section -->
-                <section class="skills section-padding">
+                <section class="skills section-padding" aria-labelledby="skills-heading">
                     <div class="section-header">
-                        <h2 class="section-title">Мои навыки</h2>
+                        <h2 class="section-title" id="skills-heading">Мои навыки</h2>
                         <p class="section-subtitle">Технологии, которые я использую в разработке</p>
                     </div>
                     <div class="skills__container">
-                        <div class="skills__grid">
-                            <div class="skill">
+                        <div class="skills__grid" role="list">
+                            <div class="skill" role="listitem">
                                 <div class="skill__header">
                                     <span class="skill__name">
-                                        <i class="bi bi-filetype-html text-danger me-2"></i>
+                                        <i class="bi bi-filetype-html text-danger me-2" aria-hidden="true"></i>
                                         HTML/CSS
                                     </span>
                                     <span class="skill__percent">90%</span>
                                 </div>
-                                <div class="skill__progress">
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка HTML/CSS: 90%">
                                     <div class="skill__progress-bar" style="width: 90%"></div>
                                 </div>
                             </div>
-                            <div class="skill">
+                            <div class="skill" role="listitem">
                                 <div class="skill__header">
                                     <span class="skill__name">
-                                        <i class="bi bi-filetype-js text-warning me-2"></i>
+                                        <i class="bi bi-filetype-js text-warning me-2" aria-hidden="true"></i>
                                         JavaScript
                                     </span>
                                     <span class="skill__percent">80%</span>
                                 </div>
-                                <div class="skill__progress">
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка JavaScript: 80%">
                                     <div class="skill__progress-bar" style="width: 80%"></div>
                                 </div>
                             </div>
-                            <div class="skill">
+                            <div class="skill" role="listitem">
                                 <div class="skill__header">
                                     <span class="skill__name">
-                                        <i class="bi bi-bootstrap text-primary me-2"></i>
+                                        <i class="bi bi-bootstrap text-primary me-2" aria-hidden="true"></i>
                                         Bootstrap
                                     </span>
                                     <span class="skill__percent">85%</span>
                                 </div>
-                                <div class="skill__progress">
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка Bootstrap: 85%">
                                     <div class="skill__progress-bar" style="width: 85%"></div>
                                 </div>
                             </div>
-                            <div class="skill">
+                            <div class="skill" role="listitem">
                                 <div class="skill__header">
                                     <span class="skill__name">
-                                        <i class="bi bi-braces text-info me-2"></i>
+                                        <i class="bi bi-braces text-info me-2" aria-hidden="true"></i>
                                         React
                                     </span>
                                     <span class="skill__percent">60%</span>
                                 </div>
-                                <div class="skill__progress">
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка React: 60%">
                                     <div class="skill__progress-bar" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill" role="listitem">
+                                <div class="skill__header">
+                                    <span class="skill__name">
+                                        <i class="bi bi-git text-primary me-2" aria-hidden="true"></i>
+                                        Git
+                                    </span>
+                                    <span class="skill__percent">75%</span>
+                                </div>
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка Git: 75%">
+                                    <div class="skill__progress-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill" role="listitem">
+                                <div class="skill__header">
+                                    <span class="skill__name">
+                                        <i class="bi bi-database text-success me-2" aria-hidden="true"></i>
+                                        SQL
+                                    </span>
+                                    <span class="skill__percent">70%</span>
+                                </div>
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка SQL: 70%">
+                                    <div class="skill__progress-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill" role="listitem">
+                                <div class="skill__header">
+                                    <span class="skill__name">
+                                        <i class="bi bi-filetype-java text-warning me-2" aria-hidden="true"></i>
+                                        Java
+                                    </span>
+                                    <span class="skill__percent">65%</span>
+                                </div>
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка Java: 65%">
+                                    <div class="skill__progress-bar" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="skill" role="listitem">
+                                <div class="skill__header">
+                                    <span class="skill__name">
+                                        <i class="bi bi-filetype-py text-info me-2" aria-hidden="true"></i>
+                                        Python
+                                    </span>
+                                    <span class="skill__percent">55%</span>
+                                </div>
+                                <div class="skill__progress" role="progressbar" 
+                                     aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"
+                                     aria-label="Уровень навыка Python: 55%">
+                                    <div class="skill__progress-bar" style="width: 55%"></div>
                                 </div>
                             </div>
                         </div>
@@ -196,74 +269,75 @@
                 </section>
 
                 <!-- Projects Preview -->
-                    <section class="projects-preview section-padding">
-                        <div class="projects-preview__card">
-                            <div class="section-header">
-                                <h2 class="section-title">Лучшие проекты</h2>
-                                <a href="pages/projects.html" class="btn-link">
-                                    Все проекты ->
-                                </a>
+                <section class="projects-preview section-padding" aria-labelledby="projects-heading">
+                    <div class="projects-preview__card">
+                        <div class="section-header">
+                            <h2 class="section-title" id="projects-heading">Лучшие проекты</h2>
+                            <a href="pages/projects.html" class="btn-link" aria-label="Посмотреть все проекты">
+                                Все проекты ->
+                            </a>
                         </div>
-                    <div class="projects-preview__grid">
-                        <article class="project-card">
-                            <div class="project-card__image">
-                                <img src="images/avtor.jpg">
-                            </div>
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Личный сайт</h3>
-                                <p class="project-card__description">
-                                    Адаптивный сайт-портфолио на HTML и CSS с современным дизайном
-                                </p>
-                                <div class="project-card__tags">
-                                    <span class="tag">HTML</span>
-                                    <span class="tag">CSS</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Bootstrap</span>
+                        <div class="projects-preview__grid" role="list">
+                            <article class="project-card" role="listitem">
+                                <div class="project-card__image">
+                                    <img src="images/avtor.jpg" alt="Скриншот личного сайта">
                                 </div>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <div class="project-card__image">
-                                <img src="images/js.jpg">
-                            </div>
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Todo приложение</h3>
-                                <p class="project-card__description">
-                                    Приложение для управления задачами с локальным хранилищем
-                                </p>
-                                <div class="project-card__tags">
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">API</span>
+                                <div class="project-card__content">
+                                    <h3 class="project-card__title">Личный сайт</h3>
+                                    <p class="project-card__description">
+                                        Адаптивный сайт-портфолио на HTML и CSS с современным дизайном
+                                    </p>
+                                    <div class="project-card__tags">
+                                        <span class="tag">HTML</span>
+                                        <span class="tag">CSS</span>
+                                        <span class="tag">JavaScript</span>
+                                        <span class="tag">Bootstrap</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <div class="project-card__image">
-                                 <img src="images/react.jpg">
-                            </div>
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Интернет-магазин</h3>
-                                <p class="project-card__description">
-                                    Прототип магазина с корзиной товаров и системой фильтрации
-                                </p>
-                                <div class="project-card__tags">
-                                    <span class="tag">React</span>
+                            </article>
+                            <article class="project-card" role="listitem">
+                                <div class="project-card__image">
+                                    <img src="images/js.jpg" alt="Скриншот Todo приложения">
                                 </div>
-                            </div>
-                        </article>
+                                <div class="project-card__content">
+                                    <h3 class="project-card__title">Todo приложение</h3>
+                                    <p class="project-card__description">
+                                        Приложение для управления задачами с локальным хранилищем
+                                    </p>
+                                    <div class="project-card__tags">
+                                        <span class="tag">JavaScript</span>
+                                        <span class="tag">API</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="project-card" role="listitem">
+                                <div class="project-card__image">
+                                    <img src="images/react.jpg" alt="Скриншот интернет-магазина">
+                                </div>
+                                <div class="project-card__content">
+                                    <h3 class="project-card__title">Интернет-магазин</h3>
+                                    <p class="project-card__description">
+                                        Прототип магазина с корзиной товаров и системой фильтрации
+                                    </p>
+                                    <div class="project-card__tags">
+                                        <span class="tag">React</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </section>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="container">
                 <div class="footer__content">
                     <div class="footer__main">
                         <div class="footer__info">
                             <p class="footer__copyright">&copy; 2025 Student Portfolio</p>
-                            <p class="footer__tagline">Создано с ❤️ и Bootstrap</p>
+                            <p class="footer__tagline">Создано с <span aria-label="любовью">❤️</span> и Bootstrap</p>
                         </div>
                         <div class="footer__contact">
                             <p class="footer__contact-item">
@@ -275,14 +349,15 @@
                         </div>
                     </div>
                     <div class="footer__social">
-                        <a href="https://github.com/pendal4f" class="social-link" aria-label="GitHub" target="_blank">
-                            <i class="bi bi-github"></i>
+                        <a href="https://github.com/pendal4f" class="social-link" 
+                           aria-label="GitHub (откроется в новой вкладке)" target="_blank" rel="noopener">
+                            <i class="bi bi-github" aria-hidden="true"></i>
                         </a>
                         <a href="#" class="social-link" aria-label="Telegram">
-                            <i class="bi bi-telegram"></i>
+                            <i class="bi bi-telegram" aria-hidden="true"></i>
                         </a>
                         <a href="#" class="social-link" aria-label="VK">
-                            <i class="bi bi-vimeo"></i>
+                            <i class="bi bi-vimeo" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -293,5 +368,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts/theme.js"></script>
     <script src="scripts/responsive.js"></script>
+    <script src="scripts/accessibility.js"></script>
 </body>
 </html>

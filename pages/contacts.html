@@ -12,7 +12,7 @@
     <div class="page__container">
 
         <!-- Header -->
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -20,26 +20,36 @@
                         <p class="mb-0 opacity-75">Студент-разработчик</p>
                     </div>
                     <div class="col-auto">
-                        <button id="themeToggle" class="theme-btn" type="button">🌞</button>
+                        <button id="themeToggle" class="theme-btn" type="button" 
+                                aria-label="Переключить тему" aria-pressed="false">🌞</button>
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- Navigation -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <div class="container">
-                <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
-                    <li class="nav__item"><a class="nav__link" href="projects.html">Проекты</a></li>
-                    <li class="nav__item"><a class="nav__link" href="diary.html">Дневник</a></li>
-                    <li class="nav__item"><a class="nav__link nav__link--active" href="contacts.html">Контакты</a></li>
+                <ul class="nav__list" role="menubar">
+                    <li class="nav__item" role="none">
+                        <a class="nav__link" href="../index.html" role="menuitem">Главная</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a class="nav__link" href="projects.html" role="menuitem">Проекты</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a class="nav__link" href="diary.html" role="menuitem">Дневник</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a class="nav__link nav__link--active" href="contacts.html" 
+                           role="menuitem" aria-current="page">Контакты</a>
+                    </li>
                 </ul>
             </div>
         </nav>
 
         <!-- Main Content -->
-        <main class="content">
+        <main class="content" id="main-content" tabindex="-1">
             <div class="container">
                 <h1 class="section-title text-center mb-5">Свяжитесь со мной</h1>
 
@@ -48,32 +58,76 @@
                     <div class="col-lg-7">
                         <div class="card shadow-sm">
                             <div class="card-header bg-light">
-                                <h3 class="h5 mb-0">Контактная форма</h3>
+                                <h2 class="h5 mb-0">Контактная форма</h2>
                             </div>
                             <div class="card-body">
-                                <form id="contactForm" class="contact-form">
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <label for="name" class="form-label">Имя *</label>
-                                            <input type="text" class="form-control" id="name" required minlength="2">
-                                            <div class="invalid-feedback">Пожалуйста, введите ваше имя</div>
+                                <form id="contactForm" class="contact-form" 
+                                      aria-labelledby="form-heading" novalidate>
+                                    <fieldset>
+                                        <legend id="form-heading" class="sr-only">
+                                            Форма для отправки сообщения
+                                        </legend>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="name" class="form-label">
+                                                    Имя <span class="text-danger" aria-hidden="true">*</span>
+                                                    <span class="sr-only">обязательное поле</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="name" 
+                                                       name="name" required minlength="2"
+                                                       aria-required="true"
+                                                       aria-describedby="name-help">
+                                                <div id="name-help" class="form-text">
+                                                    Введите ваше полное имя
+                                                </div>
+                                                <div class="invalid-feedback" id="name-error">
+                                                    Пожалуйста, введите ваше имя (минимум 2 символа)
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="email" class="form-label">
+                                                    Email <span class="text-danger" aria-hidden="true">*</span>
+                                                    <span class="sr-only">обязательное поле</span>
+                                                </label>
+                                                <input type="email" class="form-control" id="email" 
+                                                       name="email" required
+                                                       aria-required="true"
+                                                       aria-describedby="email-help">
+                                                <div id="email-help" class="form-text">
+                                                    Мы не передаем ваш email третьим лицам
+                                                </div>
+                                                <div class="invalid-feedback" id="email-error">
+                                                    Пожалуйста, введите корректный email
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="message" class="form-label">
+                                                    Сообщение <span class="text-danger" aria-hidden="true">*</span>
+                                                    <span class="sr-only">обязательное поле</span>
+                                                </label>
+                                                <textarea class="form-control" id="message" 
+                                                          name="message" rows="5" required minlength="10"
+                                                          aria-required="true"
+                                                          aria-describedby="message-help"></textarea>
+                                                <div id="message-help" class="form-text">
+                                                    Опишите ваше предложение или вопрос
+                                                </div>
+                                                <div class="invalid-feedback" id="message-error">
+                                                    Пожалуйста, введите сообщение (минимум 10 символов)
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary btn-lg"
+                                                        aria-describedby="submit-help">
+                                                    <i class="bi bi-send me-2" aria-hidden="true"></i>
+                                                    Отправить сообщение
+                                                </button>
+                                                <div id="submit-help" class="form-text mt-2">
+                                                    Все поля помеченные * обязательны для заполнения
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="email" class="form-label">Email *</label>
-                                            <input type="email" class="form-control" id="email" required>
-                                            <div class="invalid-feedback">Пожалуйста, введите корректный email</div>
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="message" class="form-label">Сообщение *</label>
-                                            <textarea class="form-control" id="message" rows="5" required minlength="10"></textarea>
-                                            <div class="invalid-feedback">Пожалуйста, введите сообщение (минимум 10 символов)</div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary btn-lg">
-                                                <i class="bi bi-send me-2"></i>Отправить сообщение
-                                            </button>
-                                        </div>
-                                    </div>
+                                    </fieldset>
                                 </form>
                             </div>
                         </div>
@@ -83,25 +137,37 @@
                     <div class="col-lg-5">
                         <div class="card shadow-sm">
                             <div class="card-header bg-light">
-                                <h3 class="h5 mb-0">Контакты</h3>
+                                <h2 class="h5 mb-0">Контакты</h2>
                             </div>
                             <div class="card-body">
-                                <div class="contact-info">
-                                    <div class="contact-item">
-                                        <i class="bi bi-envelope-fill text-primary"></i>
-                                        <span>khalin.p.s@edu.mirea.ru</span>
+                                <div class="contact-info" role="list">
+                                    <div class="contact-item" role="listitem">
+                                        <i class="bi bi-envelope-fill text-primary" aria-hidden="true"></i>
+                                        <span>
+                                            <span class="sr-only">Email: </span>
+                                            khalin.p.s@edu.mirea.ru
+                                        </span>
                                     </div>
-                                    <div class="contact-item">
-                                        <i class="bi bi-github text-primary"></i>
-                                        <span>GitHub: pendal4f</span>
+                                    <div class="contact-item" role="listitem">
+                                        <i class="bi bi-github text-primary" aria-hidden="true"></i>
+                                        <span>
+                                            <span class="sr-only">GitHub: </span>
+                                            pendal4f
+                                        </span>
                                     </div>
-                                    <div class="contact-item">
-                                        <i class="bi bi-geo-alt-fill text-primary"></i>
-                                        <span>Moscow, Russia</span>
+                                    <div class="contact-item" role="listitem">
+                                        <i class="bi bi-geo-alt-fill text-primary" aria-hidden="true"></i>
+                                        <span>
+                                            <span class="sr-only">Местоположение: </span>
+                                            Moscow, Russia
+                                        </span>
                                     </div>
-                                    <div class="contact-item">
-                                        <i class="bi bi-telephone-fill text-primary"></i>
-                                        <span>+7 (906) 043-23-54</span>
+                                    <div class="contact-item" role="listitem">
+                                        <i class="bi bi-telephone-fill text-primary" aria-hidden="true"></i>
+                                        <span>
+                                            <span class="sr-only">Телефон: </span>
+                                            +7 (906) 043-23-54
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +178,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
