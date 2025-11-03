@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио - Главная</title>
+    <title>Портфолио Петра Халина - Студент-разработчик | Веб-разработка, JavaScript, React</title>
+    <meta name="description" content="Портфолио Петра Халина - студента-разработчика. Специализация: веб-разработка, JavaScript, React, создание современных интерфейсов.">
+    <meta name="keywords" content="портфолио, разработчик, студент, веб-разработка, JavaScript, React, фронтенд">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style/styles.css">
 </head>
 <body class="page">
+    <!-- Пропускная ссылка для скринридеров -->
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+    
     <div class="page__container">
         
         <!-- Header -->
@@ -22,14 +27,14 @@
                     <div class="header__controls">
                         <button id="themeToggle" class="theme-btn" type="button" 
                                 aria-label="Переключить тему" aria-pressed="false">
-                            <span class="theme-icon">🌞</span>
+                            <span class="theme-icon" aria-hidden="true">🌞</span>
                         </button>
                         <button class="nav-toggle" id="navToggle" 
                                 aria-label="Открыть меню" aria-expanded="false" 
                                 aria-controls="mainNav">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
                         </button>
                     </div>
                 </div>
@@ -84,7 +89,7 @@
                                 </p>
                                 <div class="hero__actions">
                                     <a href="assets/resume.pdf" class="btn btn-primary btn-lg hero__button" 
-                                       download aria-label="Скачать резюме (PDF документ)">
+                                       download aria-label="Скачать резюме Петра Халина (PDF документ, 2MB)">
                                         <i class="bi bi-download me-2" aria-hidden="true"></i>Скачать резюме
                                     </a>
                                     <a href="pages/contacts.html" class="btn btn-outline-secondary btn-lg">
@@ -94,7 +99,8 @@
                             </div>
                             <div class="hero__media">
                                 <div class="hero__image-wrapper">
-                                    <img src="images/avtor.jpg" alt="Фото Петра Халина" 
+                                    <img src="images/avtor.jpg" 
+                                         alt="Фото Петра Халина - студента-разработчика в официальной одежде" 
                                          class="hero__photo img-fluid"
                                          loading="lazy" width="300" height="300">
                                     <div class="hero__status" aria-live="polite">
@@ -109,7 +115,7 @@
 
                 <!-- Stats Section -->
                 <section class="stats section-padding" aria-labelledby="stats-heading">
-                    <h2 id="stats-heading" class="sr-only">Моя статистика</h2>
+                    <h2 id="stats-heading" class="sr-only">Моя статистика в разработке</h2>
                     <div class="stats__grid">
                         <div class="stat-card" aria-labelledby="projects-count">
                             <div class="stat-card__icon">
@@ -136,9 +142,9 @@
                                 <i class="bi bi-award" aria-hidden="true"></i>
                             </div>
                             <div class="stat-card__content">
-                                <div class="stat-card__number" data-count="2" 
+                                <div class="stat-card__number" data-count="8" 
                                      id="technologies-count" aria-live="polite">0</div>
-                                <div class="stat-card__label">Технологий</div>
+                                <div class="stat-card__label">Технологий освоено</div>
                             </div>
                         </div>
                     </div>
@@ -273,14 +279,16 @@
                     <div class="projects-preview__card">
                         <div class="section-header">
                             <h2 class="section-title" id="projects-heading">Лучшие проекты</h2>
-                            <a href="pages/projects.html" class="btn-link" aria-label="Посмотреть все проекты">
-                                Все проекты ->
+                            <a href="pages/projects.html" class="btn-link" aria-label="Посмотреть все проекты в портфолио">
+                                Все проекты <span aria-hidden="true">→</span>
                             </a>
                         </div>
                         <div class="projects-preview__grid" role="list">
                             <article class="project-card" role="listitem">
                                 <div class="project-card__image">
-                                    <img src="images/avtor.jpg" alt="Скриншот личного сайта">
+                                    <img src="images/avtor.jpg" 
+                                         alt="Главная страница личного сайта-портфолио с современным дизайном" 
+                                         loading="lazy" width="400" height="250">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Личный сайт</h3>
@@ -297,7 +305,9 @@
                             </article>
                             <article class="project-card" role="listitem">
                                 <div class="project-card__image">
-                                    <img src="images/js.jpg" alt="Скриншот Todo приложения">
+                                    <img src="images/js.jpg" 
+                                         alt="Интерфейс Todo приложения со списком задач и полем ввода" 
+                                         loading="lazy" width="400" height="250">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Todo приложение</h3>
@@ -312,7 +322,9 @@
                             </article>
                             <article class="project-card" role="listitem">
                                 <div class="project-card__image">
-                                    <img src="images/react.jpg" alt="Скриншот интернет-магазина">
+                                    <img src="images/react.jpg" 
+                                         alt="Главная страница интернет-магазина с карточками товаров" 
+                                         loading="lazy" width="400" height="250">
                                 </div>
                                 <div class="project-card__content">
                                     <h3 class="project-card__title">Интернет-магазин</h3>
@@ -336,7 +348,7 @@
                 <div class="footer__content">
                     <div class="footer__main">
                         <div class="footer__info">
-                            <p class="footer__copyright">&copy; 2025 Student Portfolio</p>
+                            <p class="footer__copyright">&copy; 2025 Портфолио Петра Халина</p>
                             <p class="footer__tagline">Создано с <span aria-label="любовью">❤️</span> и Bootstrap</p>
                         </div>
                         <div class="footer__contact">
@@ -350,13 +362,14 @@
                     </div>
                     <div class="footer__social">
                         <a href="https://github.com/pendal4f" class="social-link" 
-                           aria-label="GitHub (откроется в новой вкладке)" target="_blank" rel="noopener">
+                           aria-label="GitHub профиль Петра Халина (откроется в новой вкладке)" 
+                           target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-github" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Telegram">
+                        <a href="#" class="social-link" aria-label="Telegram аккаунт">
                             <i class="bi bi-telegram" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="VK">
+                        <a href="#" class="social-link" aria-label="ВКонтакте страница">
                             <i class="bi bi-vimeo" aria-hidden="true"></i>
                         </a>
                     </div>
